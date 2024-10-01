@@ -8,6 +8,7 @@ import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.*;
 
 public class AioServerTest {
@@ -76,7 +77,7 @@ public class AioServerTest {
                         return;
                     }
                     buffer.flip();
-                    System.out.println("received message:" +  StandardCharsets.UTF_8.decode(buffer));
+                    System.out.println("received message:" + StandardCharsets.UTF_8.decode(buffer));
                     buffer.clear();
                     channel.read(buffer, timeout, TimeUnit.SECONDS, null, this);
                 }
